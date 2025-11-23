@@ -34,6 +34,14 @@
                     </x-slot>
 
                     <x-slot name="content">
+                        @if(Auth::user()->isAdmin())
+                            <x-dropdown-link :href="route('admin.dashboard')">
+                                🔒 {{ __('Panel de Administración') }}
+                            </x-dropdown-link>
+                            
+                            <div class="border-t border-gray-600"></div>
+                        @endif
+                        
                         <x-dropdown-link :href="route('profile.edit')">
                             {{ __('Perfil') }}
                         </x-dropdown-link>
