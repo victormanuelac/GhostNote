@@ -1,0 +1,11 @@
+<?php
+
+use Illuminate\Support\Facades\Route;
+
+Route::get('/', function () {
+    return view('welcome');
+})->name('home');
+
+Route::post('/secrets', [App\Http\Controllers\SecretController::class, 'store'])->name('secret.store');
+Route::get('/secret/{id}', [App\Http\Controllers\SecretController::class, 'confirm'])->name('secret.confirm');
+Route::post('/secret/{id}/reveal', [App\Http\Controllers\SecretController::class, 'show'])->name('secret.show');
